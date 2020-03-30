@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
     var numInList = 3;
     var height = MediaQuery.of(context).size.height;
     var appBarHeight = kToolbarHeight;
-    var paddingHeight = 10 * (numInList + 1);
+    var paddingHeight = 10 * (numInList + 2);
     var adjustedHeight = height - appBarHeight - paddingHeight;
     var width = MediaQuery.of(context).size.width;
 

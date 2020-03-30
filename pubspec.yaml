@@ -1,5 +1,5 @@
 name: improv_app
-description: An app for improvisers
+description: An app for improvisers to generate a set of improv games for a show, pick a random game by category, or get a suggestion.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
