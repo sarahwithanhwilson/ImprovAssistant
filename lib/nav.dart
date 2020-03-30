@@ -93,7 +93,7 @@ class NavPageState extends State<NavPage> {
                   },
                 ),
                 ListTile(
-                  title: Text('About the app'),
+                  title: Text('About'),
                   onTap: () {
                     setState(() {
                       page = constants.ABOUT;

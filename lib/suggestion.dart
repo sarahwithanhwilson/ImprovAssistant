@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:improv_app/libraries/suggestions_by_category.dart' as suggestions;
+import 'package:improv_app/libraries/suggestions_by_category.dart'
+    as suggestions;
 import 'package:improv_app/libraries/constants.dart' as constants;
 
 class Suggestion extends StatefulWidget {
@@ -34,7 +35,7 @@ class SuggestionState extends State<Suggestion> {
     var appBarHeight = kToolbarHeight;
     var resultHeight = 90;
     var paddingHeight = 10 * (numInList + 1);
-    var adjustedHeight = height - appBarHeight - resultHeight -  paddingHeight;
+    var adjustedHeight = height - appBarHeight - resultHeight - paddingHeight;
     var width = MediaQuery.of(context).size.width;
 
     return Column(
@@ -46,7 +47,10 @@ class SuggestionState extends State<Suggestion> {
             child: Text(
               "$randomSuggestion",
               textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28, color: Colors.indigo[700]),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 28,
+                  color: Colors.indigo[700]),
             ),
           ),
         ),
@@ -56,62 +60,82 @@ class SuggestionState extends State<Suggestion> {
             childAspectRatio: width / (adjustedHeight / numInList),
             mainAxisSpacing: 10,
             children: <Widget>[
-              InkWell(
-                onTap: () {
-                  this._handleRandomSuggestionButton('any');
-                },
-                child: Container(
-                  color: Colors.lime[100],
-                  padding: EdgeInsets.all(constants.BORDER_PADDING),
-                  child: Center(
-                    child: Text(
-                      'Any suggestion',
-                      style: TextStyle(fontSize: 26),
+              Material(
+                color: Colors.orange[200],
+                shadowColor: Colors.grey[200],
+                elevation: 3.0,
+                child: InkWell(
+                  splashColor: Colors.white30,
+                  onTap: () {
+                    this._handleRandomSuggestionButton('any');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(constants.BORDER_PADDING),
+                    child: Center(
+                      child: Text(
+                        'Any suggestion',
+                        style: TextStyle(fontSize: 26),
+                      ),
                     ),
                   ),
                 ),
               ),
-              InkWell(
-                onTap: () {
-                  this._handleRandomSuggestionButton('locations');
-                },
-                child: Container(
-                  color: Colors.lime[200],
-                  padding: EdgeInsets.all(constants.BORDER_PADDING),
-                  child: Center(
-                    child: Text(
-                      'Locations',
-                      style: TextStyle(fontSize: 26),
+              Material(
+                color: Colors.orange[300],
+                shadowColor: Colors.grey[200],
+                elevation: 3.0,
+                child: InkWell(
+                  splashColor: Colors.white30,
+                  onTap: () {
+                    this._handleRandomSuggestionButton('locations');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(constants.BORDER_PADDING),
+                    child: Center(
+                      child: Text(
+                        'Locations',
+                        style: TextStyle(fontSize: 26),
+                      ),
                     ),
                   ),
                 ),
               ),
-              InkWell(
-                onTap: () {
-                  this._handleRandomSuggestionButton('people');
-                },
-                child: Container(
-                  color: Colors.lime[200],
-                  padding: EdgeInsets.all(constants.BORDER_PADDING),
-                  child: Center(
-                    child: Text(
-                      'People',
-                      style: TextStyle(fontSize: 26),
+              Material(
+                color: Colors.orange[400],
+                shadowColor: Colors.grey[200],
+                elevation: 3.0,
+                child: InkWell(
+                  splashColor: Colors.white30,
+                  onTap: () {
+                    this._handleRandomSuggestionButton('people');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(constants.BORDER_PADDING),
+                    child: Center(
+                      child: Text(
+                        'People',
+                        style: TextStyle(fontSize: 26),
+                      ),
                     ),
                   ),
                 ),
               ),
-              InkWell(
-                onTap: () {
-                  this._handleRandomSuggestionButton('things');
-                },
-                child: Container(
-                  color: Colors.lime[300],
-                  padding: EdgeInsets.all(constants.BORDER_PADDING),
-                  child: Center(
-                    child: Text(
-                      'Things',
-                      style: TextStyle(fontSize: 26),
+              Material(
+                color: Colors.orange[500],
+                shadowColor: Colors.grey[200],
+                elevation: 3.0,
+                child: InkWell(
+                  splashColor: Colors.white30,
+                  onTap: () {
+                    this._handleRandomSuggestionButton('things');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(constants.BORDER_PADDING),
+                    child: Center(
+                      child: Text(
+                        'Things',
+                        style: TextStyle(fontSize: 26),
+                      ),
                     ),
                   ),
                 ),

@@ -20,47 +20,60 @@ class HomePage extends StatelessWidget {
       childAspectRatio: width / (adjustedHeight / numInList),
       mainAxisSpacing: 10,
       children: <Widget>[
-        InkWell(
-          onTap: () {
-            setPage(constants.SHOW_GENERATOR);
-          },
-          child: Container(
-            color: Colors.lime[100],
-            padding: EdgeInsets.all(constants.BORDER_PADDING),
-            child: Center(
-              child: Text(
-                'Random Show Generator',
-                style: TextStyle(fontSize: 30),
+        Material(
+          color: Colors.orange[200],
+          shadowColor: Colors.grey[200],
+          elevation: 3.0,
+          child: InkWell(
+            onTap: () {
+              setPage(constants.SHOW_GENERATOR);
+            },
+            child: Container(
+              padding: EdgeInsets.all(constants.BORDER_PADDING),
+              child: Center(
+                child: Text(
+                  'Random Show Generator',
+                  style: TextStyle(fontSize: 30),
+                ),
               ),
             ),
           ),
         ),
-        InkWell(
-          onTap: () {
-            setPage(constants.GAMES);
-          },
-          child: Container(
-            color: Colors.lime[200],
-            padding: EdgeInsets.all(constants.BORDER_PADDING),
-            child: Center(
-              child: Text(
-                'Pick a Game',
-                style: TextStyle(fontSize: 30),
+        Material(
+          color: Colors.orange[400],
+          shadowColor: Colors.grey[200],
+          elevation: 3.0,
+          child: InkWell(
+            onTap: () {
+              setPage(constants.GAMES);
+            },
+            splashColor: Colors.white30,
+            child: Container(
+              padding: EdgeInsets.all(constants.BORDER_PADDING),
+              child: Center(
+                child: Text(
+                  'Pick a Game',
+                  style: TextStyle(fontSize: 30),
+                ),
               ),
             ),
           ),
         ),
-        InkWell(
-          onTap: () {
-            setPage(constants.SUGGESTIONS);
-          },
-          child: Container(
-            color: Colors.lime[300],
-            padding: EdgeInsets.all(constants.BORDER_PADDING),
-            child: Center(
-              child: Text(
-                'Get Suggestions',
-                style: TextStyle(fontSize: 30),
+        Material(
+          color: Colors.orange[600],
+          shadowColor: Colors.grey[200],
+          elevation: 3.0,
+          child: InkWell(
+            onTap: () {
+              setPage(constants.SUGGESTIONS);
+            },
+            child: Container(
+              padding: EdgeInsets.all(constants.BORDER_PADDING),
+              child: Center(
+                child: Text(
+                  'Get Suggestions',
+                  style: TextStyle(fontSize: 30),
+                ),
               ),
             ),
           ),

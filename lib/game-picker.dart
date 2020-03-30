@@ -34,7 +34,7 @@ class GamePickerState extends State<GamePicker> {
     var appBarHeight = kToolbarHeight;
     var resultHeight = 90;
     var paddingHeight = 10 * (numInList + 1);
-    var adjustedHeight = height - appBarHeight - resultHeight -  paddingHeight;
+    var adjustedHeight = height - appBarHeight - resultHeight - paddingHeight;
     var width = MediaQuery.of(context).size.width;
 
     return Column(
@@ -59,92 +59,122 @@ class GamePickerState extends State<GamePicker> {
             childAspectRatio: width / (adjustedHeight / numInList),
             mainAxisSpacing: 10,
             children: <Widget>[
-              InkWell(
-                onTap: () {
-                  this._handleRandomGameButton('any');
-                },
-                child: Container(
-                  color: Colors.lime[100],
-                  padding: EdgeInsets.all(constants.BORDER_PADDING),
-                  child: Center(
-                    child: Text(
-                      'Any type of game',
-                      style: TextStyle(fontSize: 26),
+              Material(
+                color: Colors.orange[100],
+                shadowColor: Colors.grey[200],
+                elevation: 3.0,
+                child: InkWell(
+                  splashColor: Colors.white30,
+                  onTap: () {
+                    this._handleRandomGameButton('any');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(constants.BORDER_PADDING),
+                    child: Center(
+                      child: Text(
+                        'Any type of game',
+                        style: TextStyle(fontSize: 26),
+                      ),
                     ),
                   ),
                 ),
               ),
-              InkWell(
-                onTap: () {
-                  this._handleRandomGameButton('scene');
-                },
-                child: Container(
-                  color: Colors.lime[100],
-                  padding: EdgeInsets.all(constants.BORDER_PADDING),
-                  child: Center(
-                    child: Text(
-                      'Scene game',
-                      style: TextStyle(fontSize: 26),
+              Material(
+                color: Colors.orange[200],
+                shadowColor: Colors.grey[200],
+                elevation: 3.0,
+                child: InkWell(
+                  splashColor: Colors.white30,
+                  onTap: () {
+                    this._handleRandomGameButton('scene');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(constants.BORDER_PADDING),
+                    child: Center(
+                      child: Text(
+                        'Scene game',
+                        style: TextStyle(fontSize: 26),
+                      ),
                     ),
                   ),
                 ),
               ),
-              InkWell(
-                onTap: () {
-                  this._handleRandomGameButton('guessing');
-                },
-                child: Container(
-                  color: Colors.lime[200],
-                  padding: EdgeInsets.all(constants.BORDER_PADDING),
-                  child: Center(
-                    child: Text(
-                      'Guessing game',
-                      style: TextStyle(fontSize: 26),
+              Material(
+                color: Colors.orange[300],
+                shadowColor: Colors.grey[200],
+                elevation: 3.0,
+                child: InkWell(
+                  splashColor: Colors.white30,
+                  onTap: () {
+                    this._handleRandomGameButton('guessing');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(constants.BORDER_PADDING),
+                    child: Center(
+                      child: Text(
+                        'Guessing game',
+                        style: TextStyle(fontSize: 26),
+                      ),
                     ),
                   ),
                 ),
               ),
-              InkWell(
-                onTap: () {
-                  this._handleRandomGameButton('audience');
-                },
-                child: Container(
-                  color: Colors.lime[200],
-                  padding: EdgeInsets.all(constants.BORDER_PADDING),
-                  child: Center(
-                    child: Text(
-                      'Audience participation',
-                      style: TextStyle(fontSize: 26),
+              Material(
+                color: Colors.orange[400],
+                shadowColor: Colors.grey[200],
+                elevation: 3.0,
+                child: InkWell(
+                  splashColor: Colors.white30,
+                  onTap: () {
+                    this._handleRandomGameButton('audience');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(constants.BORDER_PADDING),
+                    child: Center(
+                      child: Text(
+                        'Audience participation',
+                        style: TextStyle(fontSize: 26),
+                      ),
                     ),
                   ),
                 ),
               ),
-              InkWell(
-                onTap: () {
-                  this._handleRandomGameButton('musical');
-                },
-                child: Container(
-                  color: Colors.lime[300],
-                  padding: EdgeInsets.all(constants.BORDER_PADDING),
-                  child: Center(
-                    child: Text(
-                      'Musical game',
-                      style: TextStyle(fontSize: 26),
+              Material(
+                color: Colors.orange[500],
+                shadowColor: Colors.grey[200],
+                elevation: 3.0,
+                child: InkWell(
+                  splashColor: Colors.white30,
+                  onTap: () {
+                    this._handleRandomGameButton('musical');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(constants.BORDER_PADDING),
+                    child: Center(
+                      child: Text(
+                        'Musical game',
+                        style: TextStyle(fontSize: 26),
+                      ),
                     ),
                   ),
                 ),
               ),
-              InkWell(
-                onTap: () {
-                  this._handleRandomGameButton('standInALine');
-                },
-                child: Container(
-                  color: Colors.lime[300],
-                  padding: EdgeInsets.all(constants.BORDER_PADDING),
-                  child: Center(
-                    child: Text(
-                      'Stand in a line',
-                      style: TextStyle(fontSize: 26),
+              Material(
+                color: Colors.orange[600],
+                shadowColor: Colors.grey[200],
+                elevation: 3.0,
+                child: InkWell(
+                  splashColor: Colors.white30,
+                  onTap: () {
+                    this._handleRandomGameButton('standInALine');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(constants.BORDER_PADDING),
+                    child: Center(
+                      child: Text(
+                        'Stand in a line',
+                        style: TextStyle(fontSize: 26),
+                      ),
                     ),
                   ),
                 ),

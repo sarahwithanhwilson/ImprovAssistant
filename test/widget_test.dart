@@ -58,7 +58,7 @@ void main() {
     expect(find.text('Random show generator'), findsOneWidget);
     expect(find.text('Pick a game'), findsOneWidget);
     expect(find.text('Get suggestions'), findsOneWidget);
-    expect(find.text('About the app'), findsOneWidget);
+    expect(find.text('About'), findsOneWidget);
   });
 
   testWidgets('goes home', (WidgetTester tester) async {
@@ -74,7 +74,7 @@ void main() {
     await tester.pumpWidget(MyApp());
     await tester.tap(find.byIcon(Icons.menu));
     await tester.pump();
-    var about = find.text('About the app');
+    var about = find.text('About');
     expect(about, findsOneWidget);
     // TODO: Why does this part fail?
 //    await tester.tap(about);
@@ -98,7 +98,7 @@ void main() {
     await tester.tap(find.text('Random Show Generator'));
     await tester.pump();
     var firstGame = find.byType(Text).first;
-    var button = find.byType(RaisedButton);
+    var button = find.text('Get a new show');
     await tester.tap(button);
     await tester.pump();
     var firstGameAfterChange = find.byType(Text).first;

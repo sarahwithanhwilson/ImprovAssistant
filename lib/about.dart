@@ -24,7 +24,7 @@ class About extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(constants.BORDER_PADDING),
           child: Text(
-              "This app was originally created by Sarah Silva for Made Up Theatre in Fremont, California. Sarah is an improviser and a software engineer who wanted to make the process of selecting short form games for an improvised comedy show easier."),
+              "This app was originally created by Sarah Silva for Made Up Theatre in Fremont, California. Sarah is an improviser and a software engineer who wanted to make the process of selecting short form games for an improvised comedy show easier. This app also encourages our improv team to play a wider variety of games."),
         ),
         Container(
           padding: EdgeInsets.all(constants.BORDER_PADDING),

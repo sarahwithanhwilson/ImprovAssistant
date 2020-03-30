@@ -14,20 +14,20 @@ class ShowGeneratorState extends State<ShowGenerator> {
 
   initializeSelectedGames(Map selectedGames) {
     if (selectedGames == null || selectedGames.isEmpty) {
-      var selected = [];
+      selectedGames ={};
       for (var i = 0; i < 12; i++) {
-        var game = this.getRandomGameByType(constants.CATEGORIES_MAP[i]);
-        selected.add(game);
+        var game = this
+            .getRandomGameByType(constants.CATEGORIES_MAP[i], selectedGames);
+        selectedGames[i] = game;
       }
       setState(() {
-        this.selectedGames = selected.asMap();
+        this.selectedGames = selectedGames;
       });
     }
   }
 
-  getRandomGameByType(List categories, [List options]) {
-    // get a random game by type
-    // pass in any number of categories (string[])
+  getRandomGameByType(List categories, [Map selectedGames, List options]) {
+    if (selectedGames == null) selectedGames = this.selectedGames;
     if (categories.length == 0) return '';
     if (options == null) options = [];
     if (options.length == 1) return options[0];
@@ -42,10 +42,10 @@ class ShowGeneratorState extends State<ShowGenerator> {
     Random random = new Random();
     var finalIndex = random.nextInt(options.length);
     var game = options[finalIndex];
-    if (this.selectedGames != null && this.selectedGames.containsValue(game)) {
+    if (selectedGames.containsValue(game)) {
       // remove duplicate from index to prevent stack overflow and try again
       options.removeAt(finalIndex);
-      return this.getRandomGameByType(categories, options);
+      return this.getRandomGameByType(categories, selectedGames, options);
     }
     return game;
   }
@@ -132,7 +132,7 @@ class ShowGeneratorState extends State<ShowGenerator> {
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
-                color: Colors.lime[200],
+                color: Colors.indigo[100],
               ),
               ShowGame(
                   game: this.selectedGames[7],
@@ -167,19 +167,26 @@ class ShowGeneratorState extends State<ShowGenerator> {
             ],
           ),
         ),
-        Center(
-          child: RaisedButton(
-            child: Text("Get new show"),
-            onPressed: () {
+        Material(
+          color: Colors.orange[200],
+          shadowColor: Colors.grey[200],
+          elevation: 3.0,
+          child: InkWell(
+            onTap: () {
               this.initializeSelectedGames({});
             },
-            color: Colors.lime[300],
-            padding: EdgeInsets.all(10),
-            splashColor: Colors.grey,
+            splashColor: Colors.white30,
+            child: Container(
+              padding: EdgeInsets.all(constants.BORDER_PADDING),
+              child: Center(
+                child: Text(
+                  'Get a new show',
+                  style: TextStyle(fontSize: 26),
+                ),
+              ),
+            ),
           ),
         ),
-        Text(
-            "This is a set of not-quite-randomly selected short form improv games. You can learn more about how the games are picked in the 'About' section of the menu."),
       ],
     );
   }
