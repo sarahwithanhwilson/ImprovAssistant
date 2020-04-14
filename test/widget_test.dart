@@ -104,4 +104,21 @@ void main() {
     var firstGameAfterChange = find.byType(Text).first;
     expect(firstGame, isNot(firstGameAfterChange));
   });
+
+  testWidgets('replaces game and then gets new show', (WidgetTester tester) async {
+    await tester.pumpWidget(MyApp());
+    await tester.tap(find.text('Random Show Generator'));
+    await tester.pump();
+    var firstGame = find.byType(Text).first;
+    await tester.tap(firstGame);
+    await tester.pump();
+    var firstGameAfterChange = find.byType(Text).first;
+    expect(firstGame, isNot(firstGameAfterChange));
+    var button = find.text('Get a new show');
+    await tester.tap(button);
+    await tester.pump();
+    var firstGameAfterNewShow = find.byType(Text).first;
+    expect(firstGameAfterChange, isNot(firstGameAfterNewShow));
+
+  });
 }

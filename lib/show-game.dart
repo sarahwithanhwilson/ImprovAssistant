@@ -16,26 +16,16 @@ class ShowGame extends StatefulWidget {
 }
 
 class ShowGameState extends State<ShowGame> {
-  String newGame;
-
-  getCurrentGame(newGame) {
-    if (newGame != null) {
-      return newGame.toUpperCase();
-    }
-    return widget.game.toUpperCase();
-  }
-
   @override
   Widget build(BuildContext context) {
-    var currentGame = getCurrentGame(this.newGame);
+    var game = widget.game;
     return InkWell(
       child: Text(
-          "$currentGame",
+          "$game",
         style: TextStyle(fontSize: 18, color: Colors.indigo[700]),
       ),
       onTap: () {
-        var newGame = widget.onReplaceGame(widget.categories);
-        setState(() {this.newGame = newGame;});
+        widget.onReplaceGame(widget.categories);
       },
     );
   }

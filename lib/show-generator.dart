@@ -14,11 +14,9 @@ class ShowGeneratorState extends State<ShowGenerator> {
 
   initializeSelectedGames(Map selectedGames) {
     if (selectedGames == null || selectedGames.isEmpty) {
-      selectedGames ={};
+      selectedGames = {};
       for (var i = 0; i < 12; i++) {
-        var game = this
-            .getRandomGameByType(constants.CATEGORIES_MAP[i], selectedGames);
-        selectedGames[i] = game;
+        this.getRandomGameByType(constants.CATEGORIES_MAP[i], i, selectedGames);
       }
       setState(() {
         this.selectedGames = selectedGames;
@@ -26,7 +24,7 @@ class ShowGeneratorState extends State<ShowGenerator> {
     }
   }
 
-  getRandomGameByType(List categories, [Map selectedGames, List options]) {
+  getRandomGameByType(List categories, gameIndex, [Map selectedGames, List options]) {
     if (selectedGames == null) selectedGames = this.selectedGames;
     if (categories.length == 0) return '';
     if (options == null) options = [];
@@ -45,8 +43,12 @@ class ShowGeneratorState extends State<ShowGenerator> {
     if (selectedGames.containsValue(game)) {
       // remove duplicate from index to prevent stack overflow and try again
       options.removeAt(finalIndex);
-      return this.getRandomGameByType(categories, selectedGames, options);
+      return this.getRandomGameByType(categories, gameIndex, selectedGames, options);
     }
+    selectedGames[gameIndex] = game;
+    setState(() {
+      selectedGames = selectedGames;
+    });
     return game;
   }
 
@@ -87,43 +89,43 @@ class ShowGeneratorState extends State<ShowGenerator> {
                   game: this.selectedGames[0],
                   categories: constants.CATEGORIES_MAP[0],
                   onReplaceGame: (List categories) {
-                    return this.getRandomGameByType(categories);
+                    return this.getRandomGameByType(categories, 0);
                   }),
               ShowGame(
                   game: this.selectedGames[1],
                   categories: constants.CATEGORIES_MAP[1],
                   onReplaceGame: (List categories) {
-                    return this.getRandomGameByType(categories);
+                    return this.getRandomGameByType(categories, 1);
                   }),
               ShowGame(
                   game: this.selectedGames[2],
                   categories: constants.CATEGORIES_MAP[2],
                   onReplaceGame: (List categories) {
-                    return this.getRandomGameByType(categories);
+                    return this.getRandomGameByType(categories, 2);
                   }),
               ShowGame(
                   game: this.selectedGames[3],
                   categories: constants.CATEGORIES_MAP[3],
                   onReplaceGame: (List categories) {
-                    return this.getRandomGameByType(categories);
+                    return this.getRandomGameByType(categories, 3);
                   }),
               ShowGame(
                   game: this.selectedGames[4],
                   categories: constants.CATEGORIES_MAP[4],
                   onReplaceGame: (List categories) {
-                    return this.getRandomGameByType(categories);
+                    return this.getRandomGameByType(categories, 4);
                   }),
               ShowGame(
                   game: this.selectedGames[5],
                   categories: constants.CATEGORIES_MAP[5],
                   onReplaceGame: (List categories) {
-                    return this.getRandomGameByType(categories);
+                    return this.getRandomGameByType(categories, 5);
                   }),
               ShowGame(
                   game: this.selectedGames[6],
                   categories: constants.CATEGORIES_MAP[6],
                   onReplaceGame: (List categories) {
-                    return this.getRandomGameByType(categories);
+                    return this.getRandomGameByType(categories, 6);
                   }),
               Container(
                 child: Center(
@@ -138,31 +140,31 @@ class ShowGeneratorState extends State<ShowGenerator> {
                   game: this.selectedGames[7],
                   categories: constants.CATEGORIES_MAP[7],
                   onReplaceGame: (List categories) {
-                    return this.getRandomGameByType(categories);
+                    return this.getRandomGameByType(categories, 7);
                   }),
               ShowGame(
                   game: this.selectedGames[8],
                   categories: constants.CATEGORIES_MAP[8],
                   onReplaceGame: (List categories) {
-                    return this.getRandomGameByType(categories);
+                    return this.getRandomGameByType(categories, 8);
                   }),
               ShowGame(
                   game: this.selectedGames[9],
                   categories: constants.CATEGORIES_MAP[9],
                   onReplaceGame: (List categories) {
-                    return this.getRandomGameByType(categories);
+                    return this.getRandomGameByType(categories, 9);
                   }),
               ShowGame(
                   game: this.selectedGames[10],
                   categories: constants.CATEGORIES_MAP[10],
                   onReplaceGame: (List categories) {
-                    return this.getRandomGameByType(categories);
+                    return this.getRandomGameByType(categories, 10);
                   }),
               ShowGame(
                   game: this.selectedGames[11],
                   categories: constants.CATEGORIES_MAP[11],
                   onReplaceGame: (List categories) {
-                    return this.getRandomGameByType(categories);
+                    return this.getRandomGameByType(categories, 11);
                   }),
             ],
           ),
