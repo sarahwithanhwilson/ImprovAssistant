@@ -22,8 +22,13 @@ class GamePickerState extends State<GamePicker> {
     }
     Random random = new Random();
     var index = random.nextInt(gameList.length);
+    var game = gameList[index].toUpperCase();
+    if (gameList.length > 1 && game == randomGame) {
+      // don't pick the same game again
+      return _handleRandomGameButton(category);
+    }
     setState(() {
-      randomGame = gameList[index].toUpperCase();
+      randomGame = game;
     });
   }
 

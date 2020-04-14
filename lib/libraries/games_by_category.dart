@@ -7,7 +7,6 @@ final Map byCategory = {
     'Try That on for Size',
     'What Are You Doing?',
     'What You Got?',
-    'What You Got?',
   ],
   'closing': [
     '5 Things (or 6 Things)',
@@ -77,7 +76,7 @@ final Map byCategory = {
     'ABC Scene',
     'Telephone',
     'Google Translate',
-    'Audience and Hamerstein',
+    'Audience and Hammerstein',
     'Insults Debate, or Dating Service',
     'Family Feud',
     'Subtext',
@@ -176,7 +175,6 @@ final Map byCategory = {
     'Boo Yay',
     'Casanova',
     'Limerick',
-    'Spelling Bee',
     'Southern Lawyer',
   ],
 };
