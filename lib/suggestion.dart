@@ -30,7 +30,7 @@ class SuggestionState extends State<Suggestion> {
 
   @override
   Widget build(BuildContext context) {
-    var numInList = 4;
+    var numInList = 5;
     var height = MediaQuery.of(context).size.height;
     var appBarHeight = kToolbarHeight;
     var resultHeight = 90;
@@ -114,6 +114,26 @@ class SuggestionState extends State<Suggestion> {
                     child: Center(
                       child: Text(
                         'People',
+                        style: TextStyle(fontSize: 26),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Material(
+                color: Colors.orange[400],
+                shadowColor: Colors.grey[200],
+                elevation: 3.0,
+                child: InkWell(
+                  splashColor: Colors.white30,
+                  onTap: () {
+                    this._handleRandomSuggestionButton('relationships');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(constants.BORDER_PADDING),
+                    child: Center(
+                      child: Text(
+                        'Relationships',
                         style: TextStyle(fontSize: 26),
                       ),
                     ),
