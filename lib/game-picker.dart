@@ -51,6 +51,8 @@ class GamePickerState extends State<GamePicker> {
             child: Text(
               "$randomGame",
               textAlign: TextAlign.center,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 28,
