@@ -22,6 +22,8 @@ class ShowGameState extends State<ShowGame> {
     return InkWell(
       child: Text(
           "$game",
+        overflow: TextOverflow.visible,
+        softWrap: true,
         style: TextStyle(fontSize: 18, color: Colors.indigo[700]),
       ),
       onTap: () {
