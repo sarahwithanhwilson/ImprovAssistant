@@ -45,8 +45,8 @@ class GamePickerState extends State<GamePicker> {
     return Column(
       children: <Widget>[
         Container(
-          height: 90,
           padding: EdgeInsets.all(constants.BORDER_PADDING),
+          constraints: BoxConstraints(minHeight: 90),
           child: Center(
             child: Text(
               "$randomGame",
