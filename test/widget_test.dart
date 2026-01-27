@@ -7,7 +7,7 @@ void main() {
   testWidgets('loads home page', (WidgetTester tester) async {
     await tester.pumpWidget(MyApp());
     expect(find.text('Random Show Generator'), findsOneWidget);
-    expect(find.text('Pick a Game Now, Please'), findsOneWidget);
+    expect(find.text('Pick a Game'), findsOneWidget);
     expect(find.text('Get Suggestions'), findsOneWidget);
   });
 
@@ -29,7 +29,7 @@ void main() {
     await tester.pumpWidget(MyApp());
     await tester.tap(find.text('Pick a Game'));
     await tester.pump();
-    await tester.tap(find.text('Any typ of game'));
+    await tester.tap(find.text('Any type of game'));
     await tester.pump();
     expect(find.text('Select a game category'), findsNothing);
   });
