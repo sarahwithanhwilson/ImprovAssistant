@@ -82,7 +82,7 @@ void main() {
 //    expect(find.text('About Improv Assistant'), findsOneWidget);
   });
 
-  testWidgets('replaces game in show schedule', (WidgetTester tester) async {
+  testWidgets('deletes game in show schedule', (WidgetTester tester) async {
     await tester.pumpWidget(MyApp());
     await tester.tap(find.text('Random Show Generator'));
     await tester.pump();
@@ -95,7 +95,6 @@ void main() {
 
   testWidgets('generates new game', (WidgetTester tester) async {
     await tester.pumpWidget(MyApp());
-    await tester.tap(find.text('Random Show Generator'));
     await tester.pump();
     var firstGame = find.byType(Text).first;
     var button = find.text('Get a new show');
@@ -113,7 +112,7 @@ void main() {
     await tester.tap(firstGame);
     await tester.pump();
     var firstGameAfterChange = find.byType(Text).first;
-    expect(firstGame, isNot(firstGameAfterChange));
+    expect(firstGame, firstGameAfterChange);
     var button = find.text('Get a new show');
     await tester.tap(button);
     await tester.pump();
