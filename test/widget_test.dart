@@ -76,10 +76,9 @@ void main() {
     await tester.pump();
     var about = find.text('About');
     expect(about, findsOneWidget);
-    // TODO: Why does this part fail?
-//    await tester.tap(about);
-//    await tester.pump();
-//    expect(find.text('About Improv Assistant'), findsOneWidget);
+    await tester.tap(about);
+    await tester.pumpAndSettle();
+    expect(find.text('About Improv Assistant'), findsOneWidget);
   });
 
   testWidgets('replaces game in show schedule', (WidgetTester tester) async {
