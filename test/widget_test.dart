@@ -86,38 +86,37 @@ void main() {
     await tester.pumpWidget(MyApp());
     await tester.tap(find.text('Random Show Generator'));
     await tester.pump();
-    var firstGame = find.byType(Text).first;
-    await tester.tap(firstGame);
+    var firstGameText = tester.widget<Text>(find.byType(Text).first).data;
+    await tester.tap(find.byType(Text).first);
     await tester.pump();
-    var firstGameAfterChange = find.byType(Text).first;
-    expect(firstGame, isNot(firstGameAfterChange));
+    var firstGameTextAfterChange = tester.widget<Text>(find.byType(Text).first).data;
+    expect(firstGameText, isNot(firstGameTextAfterChange));
   });
 
   testWidgets('generates new game', (WidgetTester tester) async {
     await tester.pumpWidget(MyApp());
     await tester.pump();
-    var firstGame = find.byType(Text).first;
+    var firstGameText = tester.widget<Text>(find.byType(Text).first).data;
     var button = find.text('Get a new show');
     await tester.tap(button);
     await tester.pump();
-    var firstGameAfterChange = find.byType(Text).first;
-    expect(firstGame, isNot(firstGameAfterChange));
+    var firstGameTextAfterChange = tester.widget<Text>(find.byType(Text).first).data;
+    expect(firstGameText, isNot(firstGameTextAfterChange));
   });
 
   testWidgets('replaces game and then gets new show', (WidgetTester tester) async {
     await tester.pumpWidget(MyApp());
     await tester.tap(find.text('Random Show Generator'));
     await tester.pump();
-    var firstGame = find.byType(Text).first;
-    await tester.tap(firstGame);
+    var firstGameText = tester.widget<Text>(find.byType(Text).first).data;
+    await tester.tap(find.byType(Text).first);
     await tester.pump();
-    var firstGameAfterChange = find.byType(Text).first;
-    expect(firstGame, firstGameAfterChange);
+    var firstGameTextAfterChange = tester.widget<Text>(find.byType(Text).first).data;
+    expect(firstGameText, isNot(firstGameTextAfterChange));
     var button = find.text('Get a new show');
     await tester.tap(button);
     await tester.pump();
-    var firstGameAfterNewShow = find.byType(Text).first;
-    expect(firstGameAfterChange, isNot(firstGameAfterNewShow));
-
+    var firstGameTextAfterNewShow = tester.widget<Text>(find.byType(Text).first).data;
+    expect(firstGameTextAfterChange, isNot(firstGameTextAfterNewShow));
   });
 }
