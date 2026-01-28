@@ -15,13 +15,14 @@ class ShowGame extends StatefulWidget {
   ShowGameState createState() => ShowGameState();
 }
 
+// This shows the game to the user. They can tap to get a new game.
 class ShowGameState extends State<ShowGame> {
   @override
   Widget build(BuildContext context) {
     var game = widget.game;
     return InkWell(
       child: Text(
-          "$game",
+          "$game name goes here",
         style: TextStyle(fontSize: 18, color: Colors.indigo[700]),
       ),
       onTap: () {
