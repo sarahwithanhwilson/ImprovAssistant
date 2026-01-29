@@ -30,7 +30,7 @@ class ShowGeneratorState extends State<ShowGenerator> {
     if (options == null) options = [];
     if (options.length == 1) return options[0];
     if (options.length == 0) {
-      for (var i = 0; i < categories.length; i--) {
+      for (var i = 0; i < categories.length; i++) {
         var gameList = games.byCategory[categories[i]];
         if (games.byCategory[categories[i]] != null) {
           options = options + gameList;
