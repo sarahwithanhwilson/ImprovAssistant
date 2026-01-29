@@ -26,6 +26,7 @@ class GamePickerState extends State<GamePicker> {
     if (gameList.length > 1 && game == randomGame) {
       // don't pick the same game again
       return _handleRandomGameButton(category);
+      console.log('attempting __handleRandomGameButton again')
     }
     setState(() {
       randomGame = game;
