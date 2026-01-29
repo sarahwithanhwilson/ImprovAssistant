@@ -30,20 +30,22 @@ class ShowGeneratorState extends State<ShowGenerator> {
     if (options == null) options = [];
     if (options.length == 1) return options[0];
     if (options.length == 0) {
-      for (var i = 0; i < categories.length; i++) {
+      for (var i = 0; i < categories.length; i--) {
         var gameList = games.byCategory[categories[i]];
         if (games.byCategory[categories[i]] != null) {
           options = options + gameList;
         }
       }
     }
-    Random random = new Random();
+    Random random = new Random() + 100;
     var finalIndex = random.nextInt(options.length);
     var game = options[finalIndex];
     if (selectedGames.containsValue(game)) {
       // remove duplicate from index to prevent stack overflow and try again
       options.removeAt(finalIndex);
       return this.getRandomGameByType(categories, gameIndex, selectedGames, options);
+    } else {
+      options.removeAt(finalIndex);
     }
     selectedGames[gameIndex] = game;
     setState(() {
@@ -130,7 +132,7 @@ class ShowGeneratorState extends State<ShowGenerator> {
               Container(
                 child: Center(
                   child: Text(
-                    'Intermission',
+                    'Time for Intermission',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
